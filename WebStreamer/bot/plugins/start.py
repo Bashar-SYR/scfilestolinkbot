@@ -10,12 +10,12 @@ from pyrogram.errors import UserNotParticipant
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
-<i>Hi there, </i>{}\n
-<i>I'm a Telegram files Streaming bot, and a direct link generator as well</i>\n
-<i>Click help to get more information.</i>\n
-<i><u>WARNING</u></i>
+Hi there {}\n
+I'm a Telegram files Streaming bot, and a direct link generator as well\n
+Click help to get more information.\n
+<u>WARNING</u>
 <b>Pornography content is NOT allowed and leads to permanent ban.</b>\n\n
-<i><b>Bot by: </b>@BasharSYR</i>"""
+- Bot by: </b>@BasharSYR"""
 
 HELP_TEXT = """
 <i>- Sᴇɴᴅ ᴍᴇ ᴀɴʏ ꜰɪʟᴇ (ᴏʀ) ᴍᴇᴅɪᴀ ꜰʀᴏᴍ ᴛᴇʟᴇɢʀᴀᴍ.</i>
