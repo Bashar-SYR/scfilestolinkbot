@@ -11,23 +11,23 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
 Hi there {}\n
-I'm a Telegram direct link generator.\n
+I'm a Telegram direct link generator bot.\n
 - Click help to get more information.\n
 • <u>WARNING</u>
 <b>Pornography content is NOT allowed and leads to permanent ban.</b>\n\n
 - Bot by: @BasharSYR"""
 
 HELP_TEXT = """
-Just send/forward me any file/media from <b>Telegram</b> and i'll provide you an external direct link to it.\n
-Link's download speed is un-metered and lasts for 24H.
+Just send/forward me any file/media from <b>Telegram</b> and i'll provide you an external direct link of it.\n
+Link's download speed is un-metered and lasts for 24H.\n
 • <u>Note:</u> If you are a Syrian resident, use a <b>VPN</b>."""
 
 ABOUT_TEXT = """
 • Original fork name: FileStreamX
 • version: 3.0.1
 • Source: <a href='https://github.com/avipatilpro/FileStreamBot'>CLICK ME</a></b>
-• Original dev's Telegram: <a href='https://telegram.me/Avishkarpatil'>CLICK ME</a></b>\n
-• Last update: 11-July-21 04:35 PM"""
+• Original dev's Telegram: <a href='https://telegram.me/Avishkarpatil'>CLICK ME</a></b>
+"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
