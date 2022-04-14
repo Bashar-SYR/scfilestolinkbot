@@ -13,14 +13,14 @@ START_TEXT = """
 Hi there {}\n
 I'm a Telegram files Streaming bot, and a direct link generator as well.\n
 Click help to get more information.\n
-<u>• WARNING</u>
+• <u>WARNING</u>
 <b>Pornography content is NOT allowed and leads to permanent ban.</b>\n\n
 - Bot by: </b>@BasharSYR"""
 
 HELP_TEXT = """
 Just send me any file/media from </b>Telegram</b> and i'll provide you an external direct link.
 Link's download speed is unlimited and lasts for 24 H.
-<u>• Note</u>\n
+• <u>Note</u>\n
 If you are a Syrian residence, use a </b>VPN</b>."""
 
 ABOUT_TEXT = """
