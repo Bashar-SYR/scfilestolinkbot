@@ -11,15 +11,14 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
 Hi there {}\n
-I'm a Telegram files Streaming bot, and a direct link generator as well.\n
-Join the channel and hit /start again to activate the bot.
+I'm a Telegram direct link generator.\n
 - Click help to get more information.\n
 • <u>WARNING</u>
 <b>Pornography content is NOT allowed and leads to permanent ban.</b>\n\n
-- Bot by: </b>@BasharSYR"""
+- Bot by: @BasharSYR"""
 
 HELP_TEXT = """
-Just send/forward me any file/media from <b>Telegram</b> and i'll provide you an external direct link.
+Just send/forward me any file/media from <b>Telegram</b> and i'll provide you an external direct link to it.\n
 Link's download speed is un-metered and lasts for 24H.
 • <u>Note:</u> If you are a Syrian resident, use a <b>VPN</b>."""
 
@@ -27,8 +26,8 @@ ABOUT_TEXT = """
 • Original fork name: FileStreamX
 • version: 3.0.1
 • Source: <a href='https://github.com/avipatilpro/FileStreamBot'>CLICK ME</a></b>
-• Original dev's Telegram: <a href='https://telegram.me/Avishkarpatil'>CLICK ME</a></b>
-•Last update: 11-July-21 04:35 PM"""
+• Original dev's Telegram: <a href='https://telegram.me/Avishkarpatil'>CLICK ME</a></b>\n
+• Last update: 11-July-21 04:35 PM"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -97,7 +96,7 @@ async def start(b, m):
         await db.add_user(m.from_user.id)
         await b.send_message(
             Var.BIN_CHANNEL,
-            f"**New user joined** \n\n__User:__ [{m.from_user.first_name}](tg://user?id={m.from_user.id}) __Started your bot.__"
+            f"**New user joined** \n\nUser: [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Started your bot."
         )
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
@@ -107,7 +106,7 @@ async def start(b, m):
                 if user.status == "kicked":
                     await b.send_message(
                         chat_id=m.chat.id,
-                        text="__Sorry bro, you are banned from using me. Contact @BasharSYR for more info.",
+                        text="Sorry bro, you are banned from using me. Contact @BasharSYR for more info.",
                         parse_mode="markdown",
                         disable_web_page_preview=True
                     )
@@ -115,7 +114,7 @@ async def start(b, m):
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="• Join my update channel to use me ;D",
+                    text="• Join my update channel first, then hit /start to use me ;D",
                     reply_markup=InlineKeyboardMarkup(
                         [[
                             InlineKeyboardButton("Link", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
@@ -154,7 +153,7 @@ async def start(b, m):
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="• Join my update channel to use me ;D",
+                    text="• Join my update channel first, then hit /start to use me ;D",
                     reply_markup=InlineKeyboardMarkup(
                         [[
                           InlineKeyboardButton("Join update channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")],
@@ -188,7 +187,7 @@ Your link is generated!\n
 <b>📂 File name:</b> {}\n
 <b>📦 File size:</b> {}\n
 <b>📥 Direct download link:</b> {}\n
-• <u>Note<u/>: Link expires in 24 H\n
+• <u>Note<u/>: Link expires in 24H\n
 """
 
         await m.reply_text(
@@ -214,7 +213,7 @@ async def help_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.BIN_CHANNEL,
-            f"**New user joined**\n\n__User:__ [{message.from_user.first_name}](tg://user?id={message.from_user.id}) __Started Your Bot.__"
+            f"**New user joined**\n\nUser: [{message.from_user.first_name}](tg://user?id={message.from_user.id}) Started Your Bot."
         )
     if Var.UPDATES_CHANNEL is not None:
         try:
@@ -230,7 +229,7 @@ async def help_handler(bot, message):
         except UserNotParticipant:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="• Join my update channel to use me ;D",
+                text="• Join my update channel first, then hit /start to use me ;D",
                 reply_markup=InlineKeyboardMarkup(
                     [[
                         InlineKeyboardButton("Join update channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
