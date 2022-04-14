@@ -12,22 +12,22 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 START_TEXT = """
 Hi there {}\n
 I'm a Telegram files Streaming bot, and a direct link generator as well.\n
-Click help to get more information.\n
+Join the channel and hit /start again to activate the bot.
+- Click help to get more information.\n
 • <u>WARNING</u>
 <b>Pornography content is NOT allowed and leads to permanent ban.</b>\n\n
 - Bot by: </b>@BasharSYR"""
 
 HELP_TEXT = """
-Just send me any file/media from </b>Telegram</b> and i'll provide you an external direct link.
-Link's download speed is unlimited and lasts for 24 H.
-• <u>Note</u>\n
-If you are a Syrian residence, use a </b>VPN</b>."""
+Just send/forward me any file/media from <b>Telegram</b> and i'll provide you an external direct link.
+Link's download speed is un-metered and lasts for 24H.
+• <u>Note:</u> If you are a Syrian resident, use a <b>VPN</b>."""
 
 ABOUT_TEXT = """
-• Original fork name: FileStreamX\n
-• version: 3.0.1\n
-• Source: <a href='https://github.com/avipatilpro/FileStreamBot'>CLICK ME</a></b>\n
-• Original dev's Telegram: <a href='https://telegram.me/Avishkarpatil'>CLICK ME</a></b>\n
+• Original fork name: FileStreamX
+• version: 3.0.1
+• Source: <a href='https://github.com/avipatilpro/FileStreamBot'>CLICK ME</a></b>
+• Original dev's Telegram: <a href='https://telegram.me/Avishkarpatil'>CLICK ME</a></b>
 •Last update: 11-July-21 04:35 PM"""
 
 START_BUTTONS = InlineKeyboardMarkup(
