@@ -184,11 +184,11 @@ async def start(b, m):
                                      file_name)
 
         msg_text ="""
-<u>Your link is generated!</u>\n
+Your link is generated!\n
 <b>📂 File name:</b> {}\n
 <b>📦 File size:</b> {}\n
 <b>📥 Direct download link:</b> {}\n
-<b>• Note: Link expires in 24 H\n
+• <u>Note<u/>: Link expires in 24 H\n
 """
 
         await m.reply_text(
