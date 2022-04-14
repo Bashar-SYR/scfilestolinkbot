@@ -81,7 +81,7 @@ Your link is generated!\n
 <b>📂 File name:</b> {}\n
 <b>📦 File size:</b> {}\n
 <b>📥 Direct download link:</b> {}\n
-• <u>Note<u/>: Link expires in 24H\n
+• <u>Note</u>: Link expires in 24H\n
 © @SyrianCrackers"""
 
         await log_msg.reply_text(text=f"**Requested by:** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**User id:** `{m.from_user.id}`\n**Download link:** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
