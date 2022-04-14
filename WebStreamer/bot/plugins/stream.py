@@ -1,5 +1,5 @@
 
-# (c) @BasharSYR
+# (c) @SyrianCrackers
 
 
 import asyncio
@@ -44,7 +44,7 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="__Sorry bro, you are banned from using me. Contact @BasharSYR for more info.",
+                    text="Sorry bro, you are banned from using me. Contact @BasharSYR for more info.",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -52,7 +52,7 @@ async def private_receive_handler(c: Client, m: Message):
         except UserNotParticipant:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="""• Join my update channel to use me ;D""",
+                text="""• Join my update channel first, then hit /start to use me ;D""",
                 reply_markup=InlineKeyboardMarkup(
                     [[ InlineKeyboardButton("Join update channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}") ]]
                 ),
@@ -81,8 +81,8 @@ Your link is generated!\n
 <b>📂 File name:</b> {}\n
 <b>📦 File size:</b> {}\n
 <b>📥 Direct download link:</b> {}\n
-• <u>Note<u/>: Link expires in 24 H\n
-© @BasharSYR"""
+• <u>Note<u/>: Link expires in 24H\n
+© @SyrianCrackers"""
 
         await log_msg.reply_text(text=f"**Requested by:** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**User id:** `{m.from_user.id}`\n**Download link:** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
         await m.reply_text(
