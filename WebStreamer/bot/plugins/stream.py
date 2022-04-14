@@ -1,5 +1,5 @@
 
-# (c) @Avishkarpatil 
+# (c) @BasharSYR
 
 
 import asyncio
@@ -36,7 +36,7 @@ async def private_receive_handler(c: Client, m: Message):
         await db.add_user(m.from_user.id)
         await c.send_message(
             Var.BIN_CHANNEL,
-            f"Nᴇᴡ Usᴇʀ Jᴏɪɴᴇᴅ : \n\nNᴀᴍᴇ : [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Sᴛᴀʀᴛᴇᴅ Yᴏᴜʀ Bᴏᴛ !!"
+            f"New user joined \n\nUser: [{m.from_user.first_name}](tg://user?id={m.from_user.id}) Started your bot."
         )
     if Var.UPDATES_CHANNEL != "None":
         try:
@@ -44,7 +44,7 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="__Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ.__\n\n  **Cᴏɴᴛᴀᴄᴛ Dᴇᴠᴇʟᴏᴘᴇʀ @Avishkarpatil Tʜᴇʏ Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
+                    text="__Sorry bro, you are banned from using me. Contact @BasharSYR for more info.",
                     parse_mode="markdown",
                     disable_web_page_preview=True
                 )
@@ -52,9 +52,9 @@ async def private_receive_handler(c: Client, m: Message):
         except UserNotParticipant:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="""<i>Jᴏɪɴ ᴍʏ ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜꜱᴇ ᴍᴇ 🔐</i>""",
+                text="""• Join my update channel to use me ;D""",
                 reply_markup=InlineKeyboardMarkup(
-                    [[ InlineKeyboardButton("Jᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Var.UPDATES_CHANNEL}") ]]
+                    [[ InlineKeyboardButton("Join update channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}") ]]
                 ),
                 parse_mode="HTML"
             )
@@ -62,7 +62,7 @@ async def private_receive_handler(c: Client, m: Message):
         except Exception:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍʏ ʙᴏss** @Avishkarpatil",
+                text="Something wrong, contact the owner for more info.",
                 parse_mode="markdown",
                 disable_web_page_preview=True)
             return
@@ -77,25 +77,25 @@ async def private_receive_handler(c: Client, m: Message):
                                     file_name)
 
         msg_text ="""
-<i><u>𝗬𝗼𝘂𝗿 𝗟𝗶𝗻𝗸 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 !</u></i>\n
-<b>📂 Fɪʟᴇ ɴᴀᴍᴇ :</b> <i>{}</i>\n
-<b>📦 Fɪʟᴇ ꜱɪᴢᴇ :</b> <i>{}</i>\n
-<b>📥 Dᴏᴡɴʟᴏᴀᴅ :</b> <i>{}</i>\n
-<b>🚸 Nᴏᴛᴇ : Tʜɪs ᴘᴇʀᴍᴀɴᴇɴᴛ Lɪɴᴋ, Nᴏᴛ Exᴘɪʀᴇᴅ</b>\n
-<i>© @AvishkarPatil </i>"""
+Your link is generated!\n
+<b>📂 File name:</b> {}\n
+<b>📦 File size:</b> {}\n
+<b>📥 Direct download link:</b> {}\n
+• <u>Note<u/>: Link expires in 24 H\n
+© @BasharSYR"""
 
-        await log_msg.reply_text(text=f"**RᴇQᴜᴇꜱᴛᴇᴅ ʙʏ :** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**Uꜱᴇʀ ɪᴅ :** `{m.from_user.id}`\n**Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ :** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
+        await log_msg.reply_text(text=f"**Requested by:** [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n**User id:** `{m.from_user.id}`\n**Download link:** {stream_link}", disable_web_page_preview=True, parse_mode="Markdown", quote=True)
         await m.reply_text(
             text=msg_text.format(file_name, file_size, stream_link),
             parse_mode="HTML", 
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ 📥", url=stream_link)]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Download now 📥", url=stream_link)]]),
             quote=True
         )
     except FloodWait as e:
         print(f"Sleeping for {str(e.x)}s")
         await asyncio.sleep(e.x)
-        await c.send_message(chat_id=Var.BIN_CHANNEL, text=f"Gᴏᴛ FʟᴏᴏᴅWᴀɪᴛ ᴏғ {str(e.x)}s from [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n**𝚄𝚜𝚎𝚛 𝙸𝙳 :** `{str(m.from_user.id)}`", disable_web_page_preview=True, parse_mode="Markdown")
+        await c.send_message(chat_id=Var.BIN_CHANNEL, text=f"Got floodwait of {str(e.x)}s from [{m.from_user.first_name}](tg://user?id={m.from_user.id})\n\n**𝚄ser id:** `{str(m.from_user.id)}`", disable_web_page_preview=True, parse_mode="Markdown")
 
 
 @StreamBot.on_message(filters.channel & (filters.document | filters.video) & ~filters.edited, group=-1)
@@ -110,8 +110,8 @@ async def channel_receive_handler(bot, broadcast):
                                     Var.PORT,
                                     log_msg.message_id)
         await log_msg.reply_text(
-            text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** https://t.me/{(await bot.get_me()).username}?start=AvishkarPatil_{str(log_msg.message_id)}",
-            # text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** https://t.me/FxStreamBot?start=AvishkarPatil_{str(log_msg.message_id)}",
+            text=f"**Channel name:** `{broadcast.chat.title}`\n**Channel id:** `{broadcast.chat.id}`\n**Request url:** https://t.me/{(await bot.get_me()).username}?start=BasharSYR_{str(log_msg.message_id)}",
+            # text=f"**Channel name:** `{broadcast.chat.title}`\n**Channel id:** `{broadcast.chat.id}`\n**Request url:** https://t.me/FxStreamBot?start=BasharSYR_{str(log_msg.message_id)}",
             quote=True,
             parse_mode="Markdown"
         )
@@ -119,15 +119,15 @@ async def channel_receive_handler(bot, broadcast):
             chat_id=broadcast.chat.id,
             message_id=broadcast.message_id,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 📥", url=f"https://t.me/{(await bot.get_me()).username}?start=AvishkarPatil_{str(log_msg.message_id)}")]])
-            # [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 📥", url=f"https://t.me/FxStreamBot?start=AvishkarPatil_{str(log_msg.message_id)}")]])
+                [[InlineKeyboardButton("Download link 📥", url=f"https://t.me/{(await bot.get_me()).username}?start=BasharSYR_{str(log_msg.message_id)}")]])
+            # [[InlineKeyboardButton("Download link 📥", url=f"https://t.me/FxStreamBot?start=BasharSYR_{str(log_msg.message_id)}")]])
         )
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
         await asyncio.sleep(w.x)
         await bot.send_message(chat_id=Var.BIN_CHANNEL,
-                             text=f"Gᴏᴛ FʟᴏᴏᴅWᴀɪᴛ ᴏғ {str(w.x)}s from {broadcast.chat.title}\n\n**Cʜᴀɴɴᴇʟ ID:** `{str(broadcast.chat.id)}`",
+                             text=f"Got floodwait of {str(w.x)}s from {broadcast.chat.title}\n\n**Channel id:** `{str(broadcast.chat.id)}`",
                              disable_web_page_preview=True, parse_mode="Markdown")
     except Exception as e:
-        await bot.send_message(chat_id=Var.BIN_CHANNEL, text=f"**#ᴇʀʀᴏʀ_ᴛʀᴀᴄᴇʙᴀᴄᴋ:** `{e}`", disable_web_page_preview=True, parse_mode="Markdown")
-        print(f"Cᴀɴ'ᴛ Eᴅɪᴛ Bʀᴏᴀᴅᴄᴀsᴛ Mᴇssᴀɢᴇ!\nEʀʀᴏʀ: {e}")
+        await bot.send_message(chat_id=Var.BIN_CHANNEL, text=f"**#Error traceback:** `{e}`", disable_web_page_preview=True, parse_mode="Markdown")
+        print(f"Can't edit broadcast message!\nError: {e}")
