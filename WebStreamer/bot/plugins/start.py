@@ -19,7 +19,7 @@ I'm a Telegram videos streamer and direct links generator bot.\n
 
 HELP_TEXT = """
 Just send/forward me any file/media from <b>Telegram</b> and i'll provide you an external direct link of it.\n
-Link's download speed is un-metered and lasts for 24H.\n
+Link's download speed is un-metered and lasts forever.\n
 • <u>Note:</u> If you are a Syrian resident, use a <b>VPN</b>."""
 
 ABOUT_TEXT = """
@@ -187,7 +187,6 @@ Your link is generated!\n
 <b>📂 File name:</b> {}\n
 <b>📦 File size:</b> {}\n
 <b>📥 Direct download link:</b> {}\n
-• <u>Note<u/>: Link expires in 24H\n
 """
 
         await m.reply_text(
