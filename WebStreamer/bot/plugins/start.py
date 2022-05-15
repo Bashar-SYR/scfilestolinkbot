@@ -11,7 +11,7 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
 Hi there {}\n
-I'm a Telegram videos streamer and direct links generator bot.\n
+I'm a <b>Telegram</b> videos streamer and direct links generator bot.\n
 - Click help to get more information.\n
 • <u>WARNING</u>
 <b>Pornography content is NOT allowed and leads to permanent ban.</b>\n\n
